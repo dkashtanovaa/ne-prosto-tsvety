@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Решение алгоритмической задачи</title>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Главная</a> |
+        <a href="index.html">Главная</a> |
+        <a href="catalog.html">Каталог</a> |
+        <a href="guide.html">Гид по цветам</a> |
+        <a href="care.html">Уход за цветами</a> |
+        <a href="delivery.html">Доставка и мастер-классы</a> |
+        <a href="./domread.html">DOM: чтение</a> |
+        <a href="./domedit.html">DOM: изменение</a> |
+        <strong>Решение алгоритмической задачи</strong>
+    </nav>
+
+    <h1>Решение алгоритмической задачи</h1>
+
+    <p>
+        Даны вещественные числа X и Y . Вычислить Z. Z = XY при X > Y ,Z = ln(X + Y ) в противном случае.
+    </p>
+
+    <p>
+        <label>
+            X:
+            <input id="x" type="number" step="any" value="3">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Y:
+            <input id="y" type="number" step="any" value="2">
+        </label>
+    </p>
+
+    <button id="calculate">Вычислить Z</button>
+
+    <p id="result">Здесь появится результат.</p>
+
+    <script>
+        const button = document.querySelector("#calculate");
+
+        button.addEventListener("click", function () {
+            const xText = document.querySelector("#x").value;
+            const yText = document.querySelector("#y").value;
+            const result = document.querySelector("#result");
+
+            if (xText === "" || yText === "") {
+                result.textContent = "Введи оба числа.";
+                return;
+            }
+
+            const x = Number(xText);
+            const y = Number(yText);
+            let z;
+
+            if (x > y) {
+                z = x * y;
+                result.textContent = "Так как X > Y, Z = X · Y = " + z;
+            } else if (x + y > 0) {
+                z = Math.log(x + y);
+                result.textContent = "Так как X ≤ Y, Z = ln(X + Y) = " + z;
+            } else {
+                result.textContent =
+                    "Нельзя вычислить ln(X + Y): сумма X + Y должна быть больше нуля.";
+            }
+        });
+    </script>
+
+</body>
+</html>

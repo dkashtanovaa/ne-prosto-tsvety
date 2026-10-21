@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Доставка и мастер-классы Не просто цветы</title>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Главная</a> |
+        <a href="catalog.html">Каталог</a> |
+        <a href="guide.html">Гид по цветам</a> |
+        <a href="care.html">Уход за цветами</a> |
+        <strong>Доставка и мастер-классы</strong> |
+        <a href="algorithm.html">Решение алгоритмической задачи</a>
+    </nav>
+
+    <h1 id="top">Доставка и мастер-классы</h1>
+
+    <nav>
+        <a href="#delivery">Доставка</a> |
+        <a href="#contacts">Контактная форма</a> |
+        <a href="#order">Заказ букета</a> 
+    </nav>
+
+    <section id="delivery">
+        <h2>Доставка</h2>
+
+        <p>
+            Мы привозим букеты по городу в выбранный день. При оформлении заказа
+            укажи дату доставки и название букета. Флорист свяжется с тобой,
+            чтобы подтвердить детали.
+        </p>
+
+        <h2>Мастер-классы</h2>
+
+        <p>
+            На мастер-классе небольшая группа учится сочетать цветы и собирать
+            собственный букет. Можно прийти с друзьями или записать целую группу.
+        </p>
+
+        <ol>
+            <li>Выбери удобную дату.</li>
+            <li>Укажи размер группы в контактной форме.</li>
+            <li>Дождись подтверждения записи.</li>
+        </ol>
+    </section>
+
+    <section id="contacts">
+        <h2>Связаться с мастерской</h2>
+
+        <p>
+            Оставь контактные данные, мы с тобой свяжемся!
+        </p>
+
+        <form action="https://httpbin.org/post" method="post">
+            <p>
+                <label>
+                    Фамилия:
+                    <input type="text" name="surname" required>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Имя:
+                    <input type="text" name="first_name" required>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Мобильный телефон:
+                    <input type="tel" name="phone" required>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Электронная почта:
+                    <input type="email" name="email" required>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Дата отправки:
+                    <input type="date" name="date" required>
+                </label>
+            </p>
+
+            <button type="submit">Отправить контакты</button>
+        </form>
+    </section>
+
+    <section id="order">
+        <h2>Заказать букет</h2>
+
+        <p>
+            Выбери букет и способ получения
+        </p>
+
+        <form action="https://httpbin.org/post" method="post">
+            <p>
+                <label>
+                    Название букета:
+                    <input type="text"
+                           name="bouquet_name"
+                           value="Лавандовое облако"
+                           required>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Количество букетов:
+                    <input type="number"
+                           name="bouquet_quantity"
+                           min="1"
+                           value="1"
+                           required>
+                </label>
+            </p>
+
+            <p>Как получить заказ?</p>
+
+            <p>
+                <label>
+                    <input type="radio"
+                           name="delivery_type"
+                           value="courier"
+                           checked>
+                    Доставка курьером
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input type="radio"
+                           name="delivery_type"
+                           value="pickup">
+                    Самовывоз
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input type="checkbox"
+                           name="greeting_card"
+                           value="yes"
+                           checked>
+                    Добавить открытку
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Дата доставки:
+                    <input type="date" name="deliverydate" required>
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    Промокод:
+                    <input type="password"
+                           name="demo_code"
+                           value="test123">
+                </label>
+            </p>
+
+            <input type="hidden"
+                   name="form_type"
+                   value="bouquet_order">
+
+            <button type="submit">Отправить заказ</button>
+        </form>
+    </section>
+
+    <p>
+        <a href="#top">К началу страницы</a>
+    </p>
+
+</body>
+</html>

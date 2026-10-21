@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменяем кириллицу на латиницу по клику</title>
+</head>
+
+<body id="top">
+
+    <nav>
+    <a href="catalog.html">Каталог</a> |
+    <a href="guide.html">Гид по цветам</a> |
+    <a href="care.html">Уход за цветами</a> |
+    <a href="delivery.html">Доставка и мастер-классы</a> |
+    <a href="./domread.html">DOM: чтение</a> |
+        <span>DOM: изменение</span> |
+     <a href="algorithm.html">Решение алгоритмической задачи</a>
+    </nav>
+
+    <h1>Изменяем кириллицу на латиницу по клику</h1>
+
+    <p>Нажми кнопку, чтобы заменить русские буквы на латинские.</p>
+
+    <button id="change-button">Изменить данные</button>
+
+    <h2>Страница 2</h2>
+
+    <p>Все данные на странице вымышлены</p>
+
+    <p>Фамилия: <span id="surname">ИВАНОВА</span></p>
+    <p>Имя: <span id="first-name">АННА</span></p>
+    <p>Отчество: <span id="patronymic">СЕРГЕЕВНА</span></p>
+    <p>Пол: <span id="gender">ЖЕН.</span></p>
+    <p>Дата рождения: <span id="birth-date">15.04.2005</span></p>
+    <p>Год рождения: <span id="birth-year">2005</span></p>
+    <p>Место рождения: <span id="birth-place">ГОРОД МОСКВА</span></p>
+
+    <h2>Страница 3</h2>
+
+    <p>Место для фотографии</p>
+    <p>Подпись владельца: <span id="signature">Иванова А.</span></p>
+
+    <p><a href="#top">К началу страницы</a></p>
+
+    <script>
+        const letters = {
+            "А": "A", "Б": "B", "В": "V", "Г": "G", "Д": "D",
+            "Е": "E", "Ё": "E", "Ж": "ZH", "З": "Z", "И": "I",
+            "Й": "Y", "К": "K", "Л": "L", "М": "M", "Н": "N",
+            "О": "O", "П": "P", "Р": "R", "С": "S", "Т": "T",
+            "У": "U", "Ф": "F", "Х": "KH", "Ц": "TS", "Ч": "CH",
+            "Ш": "SH", "Щ": "SHCH", "Ъ": "", "Ы": "Y", "Ь": "",
+            "Э": "E", "Ю": "YU", "Я": "YA"
+        };
+
+        function transliterate(text) {
+            return text
+                .toUpperCase()
+                .split("")
+                .map(function (letter) {
+                    return letters[letter] ?? letter;
+                })
+                .join("");
+        }
+
+        document
+            .getElementById("change-button")
+            .addEventListener("click", function () {
+                const ids = [
+                    "surname",
+                    "first-name",
+                    "patronymic",
+                    "gender",
+                    "birth-date",
+                    "birth-year",
+                    "birth-place",
+                    "signature",
+                    "note"
+                ];
+
+                ids.forEach(function (id) {
+                    const element = document.getElementById(id);
+                    element.innerText = transliterate(element.innerText);
+                });
+            });
+    </script>
+
+</body>
+</html>
